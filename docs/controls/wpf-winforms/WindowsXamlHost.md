@@ -20,6 +20,26 @@ To get the **WindowsXamlHost** control, install the appropriate Nuget package:
 
 After you install the NuGet package, [set up your project](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-enhance#first-set-up-your-project) so that it can use UWP types.
 
+Please note:
+
+On the [set up your project](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-enhance#first-set-up-your-project) document, it actually has some mistakes.
+
+add a reference to these files.
+
+|File|Location|
+|--|--|
+|System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+|System.Runtime.WindowsRuntime.UI.Xaml|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+|System.Runtime.InteropServices.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.UniversalApiContract\<*version*>|
+|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.FoundationContract\<*version*>|
+
+Actually, we need to add reference to `Windows.winmd` instead of `Windows.Foundation.UniversalApiContract.winmd`.
+
+|File|Location|
+|--|--|
+|Windows.winmd|C:\Program Files (x86)\Windows Kits\10\UnionMetadata\<*sdk version*>\Windows.winmd|
+
 ## Known issues and limitations
 
 See our list of [known issues](https://github.com/windows-toolkit/WindowsCommunityToolkit/issues?utf8=%E2%9C%93&q=is:issue+is:open+label:XamlIslands+label:bug) for WPF and Windows Forms controls in the Windows Community Toolkit repo.
